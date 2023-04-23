@@ -14,7 +14,7 @@ public final class SnowballReclining extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         saveDefaultConfig();
-        getConfig().addDefault("knockbackForce", 3);
+        getConfig().addDefault("knockbackForce", 1);
         getConfig().addDefault("useOnPlayersOnly", true);
 
         getServer().getPluginManager().registerEvents(this, this);
@@ -43,7 +43,7 @@ public final class SnowballReclining extends JavaPlugin implements Listener {
         hitEntity.setVelocity(
                 snowball.getVelocity().add(
                         hitEntity.getLocation().toVector().subtract(snowball.getLocation().toVector()).normalize()
-                                .multiply(config.getInt("knockbackForce"))
+                                .multiply(config.getDouble("knockbackForce"))
                 )
         );
     }
